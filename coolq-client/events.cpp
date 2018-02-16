@@ -2,6 +2,10 @@
 
 uint8_t state_ = CLIENT_STATE_CND;
 
+CLIENT_EVENT(const char *, event_get_client_info, AppInfo, 0)() {
+	return CLIENT_APP_INFO;
+}
+
 CLIENT_EVENT(int32_t, event_set_client_disabled, SetClientDisabled, 0)() {
 	assert(state_ == CLIENT_STATE_ENABLED);
 	state_ = CLIENT_STATE_DISABLED;
